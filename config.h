@@ -6,7 +6,7 @@ static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "tamzen-15:size=14","Siji:size=12:antialias=false" };
+static const char *fonts[]          = { "tamzen-15:size=14","Siji:size=12:antialias=false", "NotoSansDisplay Nerd Font Mono:size=12" };
 static const char dmenufont[]       = "tamzen-15:size=12";
 static const char col_gray1[]       = "#282828";
 static const char col_gray2[]       = "#4c3a3d";
@@ -62,7 +62,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 /* static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL }; */
 static const char *dmenucmd[] = { "dmenu_run", "-h", "10", "-c", "-l", "10", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 
 #include <X11/XF86keysym.h>
 static Key keys[] = {
@@ -118,7 +118,7 @@ static Key keys[] = {
    	{ 0, XF86XK_Display,        	spawn,     SHCMD("slock") },
    	{ MODKEY,XF86XK_Display,        spawn,     SHCMD("systemctl suspend") },
     /* wlan on/off already functions */
-   	{ 0, XF86XK_Tools,          	spawn,     SHCMD("st -e htop") },
+   	{ 0, XF86XK_Tools,          	spawn,     SHCMD("alacritty -e htop") },
     /* bluetooth works */
     /* keyboard works */
    	{ 0, XF86XK_Favorites,         	spawn,     SHCMD("dwmfavorites") },
