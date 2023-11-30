@@ -6,7 +6,7 @@ static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Anonymice Nerd Font:size=12","ProFontIIX Nerd Font:size=12"};
+static const char *fonts[]          = { "Tamzen:style=bold:size=14","ProFontIIX Nerd Font:size=12"};
 static const char dmenufont[]       = "ProFontIIX Nerd Font:size=12";
 static const char col_gray1[]       = "#282828";
 static const char col_gray2[]       = "#4c3a3d";
@@ -20,8 +20,8 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "", "", "", "", "", "笠", "狀" };
-static const char *tagsalt[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "sys", "web", "dev", "mail", "rss", "msg", "7", "8", "9" };
+static const char *tagsalt[] = { "", "", "", "󰇰", "", "", "", "笠", "狀" };
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
@@ -69,7 +69,7 @@ static const char *termcmd[]  = { "kitty", NULL };
 #include <X11/XF86keysym.h>
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
@@ -107,9 +107,9 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 
 	{ 0,                            XK_Print,  spawn,          SHCMD("flameshot gui") },
-	{ MODKEY,                       XK_c,      spawn,          SHCMD("todo") },
-	{ MODKEY,                       XK_n,      spawn,          SHCMD("timeline") },
-	{ MODKEY|ShiftMask,             XK_n,      spawn,          SHCMD("timelinesearch") },
+	/* { MODKEY,                       XK_c,      spawn,          SHCMD("kitty nvim todo.xit") }, */
+	/*{ MODKEY,                       XK_n,      spawn,          SHCMD("timeline") },*/
+	/* { MODKEY|ShiftMask,             XK_n,      spawn,          SHCMD("timelinesearch") }, */
 
    	{ 0, XF86XK_AudioMute,      	spawn,     SHCMD("amixer sset Master toggle") },
    	{ 0, XF86XK_AudioLowerVolume, 	spawn,     SHCMD("amixer sset Master 5%-") },
@@ -120,7 +120,7 @@ static Key keys[] = {
    	{ 0, XF86XK_Display,        	spawn,     SHCMD("slock") },
    	{ MODKEY,XF86XK_Display,        spawn,     SHCMD("loginctl suspend && slock;") },
     /* wlan on/off already functions */
-   	{ 0, XF86XK_Tools,          	spawn,     SHCMD("kitty -e htop") },
+   	{ 0, XF86XK_Tools,          	spawn,     SHCMD("kitty -e btm") },
     /* bluetooth works */
     /* keyboard works */
    	{ 0, XF86XK_Favorites,         	spawn,     SHCMD("dwmfavorites") },
