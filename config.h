@@ -2,22 +2,23 @@
 
 /* appearance */
 /* Grays progress from dark to light */
-static const unsigned int borderpx  = 3;        /* border pixel of windows */
-static const unsigned int gappx     = 3;        /* gap pixel between windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int gappx     = 0;        /* gap pixel between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Tamzen:style=bold:size=14","ProFontIIX Nerd Font:size=12"};
+static const char *fonts[]          = { "IntelOneMono:style=bold:size=12","ProFontIIX Nerd Font:size=12"};
 static const char dmenufont[]       = "ProFontIIX Nerd Font:size=12";
 static const char col_gray1[]       = "#282828";
 static const char col_gray2[]       = "#4c3a3d";
 static const char col_gray3[]       = "#928374";
 static const char col_gray4[]       = "#a89984";
 static const char col_cyan[]        = "#9cb2bc";
+static const char col_yellow[]      = "#fabd2f";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray4, col_gray1, col_cyan },
-	[SchemeSel]  = { col_gray1, col_cyan,  col_cyan  },
+	[SchemeSel]  = { col_gray1, col_cyan,  col_yellow  },
 };
 
 /* tagging */
@@ -65,7 +66,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 /* static const char *dmenucmd[] = { "dmenu_run", "-h", "10", "-c", "-l", "10", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, NULL }; */
 
 static const char *dmenucmd[] = { "rofi", "-show", "run", NULL };
-static const char *termcmd[]  = { "kitty", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 
 #include <X11/XF86keysym.h>
 static Key keys[] = {
@@ -121,7 +122,7 @@ static Key keys[] = {
    	{ 0, XF86XK_Display,        	spawn,     SHCMD("slock") },
    	{ MODKEY,XF86XK_Display,        spawn,     SHCMD("loginctl suspend && slock;") },
     /* wlan on/off already functions */
-   	{ 0, XF86XK_Tools,          	spawn,     SHCMD("kitty -e btm") },
+   	{ 0, XF86XK_Tools,          	spawn,     SHCMD("alacritty -e btm") },
     /* bluetooth works */
     /* keyboard works */
    	{ 0, XF86XK_Favorites,         	spawn,     SHCMD("dwmfavorites") },
