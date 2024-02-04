@@ -2,27 +2,28 @@
 
 /* appearance */
 /* Grays progress from dark to light */
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int borderpx  = 4;        /* border pixel of windows */
 static const unsigned int gappx     = 0;        /* gap pixel between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "IntelOneMono:style=bold:size=12","ProFontIIX Nerd Font:size=12"};
-static const char dmenufont[]       = "ProFontIIX Nerd Font:size=12";
+static const char *fonts[]          = { "IntelOneMono:style=bold:size=16","ProFontIIX Nerd Font:size=16"};
+static const char dmenufont[]       = "ProFontIIX Nerd Font:size=16";
 static const char col_gray1[]       = "#282828";
 static const char col_gray2[]       = "#4c3a3d";
 static const char col_gray3[]       = "#928374";
 static const char col_gray4[]       = "#a89984";
 static const char col_cyan[]        = "#9cb2bc";
+static const char col_green[]       = "#98971a";
 static const char col_yellow[]      = "#fabd2f";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray4, col_gray1, col_cyan },
+	[SchemeNorm] = { col_cyan, col_gray1, col_cyan },
 	[SchemeSel]  = { col_gray1, col_cyan,  col_yellow  },
 };
 
 /* tagging */
-static const char *tags[] = { "sys", "web", "dev", "mail", "rss", "msg", "7", "8", "9" };
+static const char *tags[] = { "sys", "web", "dev", "notes", "rss", "msg", "7", "8", "9" };
 static const char *tagsalt[] = { "", "", "", "󰇰", "", "", "", "笠", "狀" };
 static const Rule rules[] = {
 	/* xprop(1):
@@ -30,7 +31,9 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
+	{ "discord",     NULL,       NULL,       6,            0,           -1 },
+	{ "Firefox",     NULL,       NULL,       2,            0,           -1 },
+	{ "obsidian",     NULL,       NULL,       2,            0,           -1 },
 };
 
 /* layout(s) */
@@ -117,8 +120,8 @@ static Key keys[] = {
    	{ 0, XF86XK_AudioLowerVolume, 	spawn,     SHCMD("amixer sset Master 5%-") },
    	{ 0, XF86XK_AudioRaiseVolume, 	spawn,     SHCMD("amixer sset Master 5%+") },
     { 0, XF86XK_AudioMicMute,       spawn,     SHCMD("amixer sset Capture toggle") },
-   	{ 0, XF86XK_MonBrightnessDown, 	spawn,     SHCMD("xbright dec 50") },
-   	{ 0, XF86XK_MonBrightnessUp, 	spawn,     SHCMD("xbright inc 50") },
+   	{ 0, XF86XK_MonBrightnessDown, 	spawn,     SHCMD("xbacklight -dec 10") },
+   	{ 0, XF86XK_MonBrightnessUp, 	spawn,     SHCMD("xbacklight -inc 10") },
    	{ 0, XF86XK_Display,        	spawn,     SHCMD("slock") },
    	{ MODKEY,XF86XK_Display,        spawn,     SHCMD("loginctl suspend && slock;") },
     /* wlan on/off already functions */
